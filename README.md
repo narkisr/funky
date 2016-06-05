@@ -1,7 +1,11 @@
 # Intro
 
-Some basic Java 8 functional utilities.
+Java 8 functional utilities.
 
+
+# Usage 
+
+TBD
 
 # Copyright and license
 
