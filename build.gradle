@@ -1,9 +1,36 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
+version = '0.0.1'
+description = 'Java 8 functional utility methods'
+group = 'com.narkisr'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+    }
+}
+
+apply plugin: 'com.jfrog.bintray'
 
 compileJava {
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 }
 
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    configurations = ['archives']
+    pkg {
+        repo = 'narkisr-jars'
+        name = 'funky'
+        userOrg = 'narkisr'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/narkisr/funky'
+
+    }
+}
